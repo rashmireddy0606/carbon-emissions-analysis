@@ -35,12 +35,12 @@ print("Chart 1 saved")
 # CHART 2: Correlation heatmap
 import seaborn as sns
 
-corr_cols = ['carbon_intensity', 'annual_return_2022', 'return_on_equity', 'market_cap']
+corr_cols = ['carbon_intensity', 'annual_return_2022', 'return_on_equity']
 corr_matrix = df[corr_cols].corr()
 
 # Rename columns for cleaner labels
-corr_matrix.columns = ['Carbon Intensity', 'Annual Return', 'Return on Equity', 'Market Cap']
-corr_matrix.index = ['Carbon Intensity', 'Annual Return', 'Return on Equity', 'Market Cap']
+corr_matrix.columns = ['Carbon Intensity', 'Annual Return', 'Return on Equity']
+corr_matrix.index = ['Carbon Intensity', 'Annual Return', 'Return on Equity']
 
 fig, ax = plt.subplots(figsize=(8, 6))
 

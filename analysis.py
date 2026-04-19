@@ -53,6 +53,19 @@ tercile_summary = df.groupby('tercile')[['annual_return_2022', 'return_on_equity
 print("\n--- TERCILE ANALYSIS ---")
 print(tercile_summary)
 
+# Correlation metrics
+metrics = {
+    'Annual Return': 'annual_return_2022',
+    'Return on Equity': 'return_on_equity'
+}
+
+print("\n--- CARBON INTENSITY CORRELATIONS ---")
+for label, col in metrics.items():
+    clean = df[['carbon_intensity', col]].dropna()
+    r, p = stats.pearsonr(clean['carbon_intensity'], clean[col])
+    print(f"{label}: r = {r:.3f}, p = {p:.3f}")
+
+
 # --- SUMMARY ---
 print("\n--- FULL SUMMARY ---")
 print(f"Sample size: {len(df)} companies")
